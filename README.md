@@ -1,5 +1,4 @@
-Here's a simple README template for a Lit-based host application:
-
+A Lit-based host application:
 ---
 
 # Lit Host Application
