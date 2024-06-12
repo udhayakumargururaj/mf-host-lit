@@ -1,6 +1,3 @@
-A Lit-based host application:
----
-
 # Lit Host Application
 
 This is a Lit-based host application that consumes a remote component.
