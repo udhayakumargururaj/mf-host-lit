@@ -44,5 +44,7 @@ Follow these steps to get the host application up and running:
 
 2. Open your web browser and navigate to [http://localhost:9000](http://localhost:9000) to view the application.
 
-3. ![image](https://github.com/udhayakumargururaj/mf-host-lit/assets/13679306/db023cc3-9b45-4bc6-acac-ef3452107250)
+### Reference
+
+ ![image](https://github.com/udhayakumargururaj/mf-host-lit/assets/13679306/db023cc3-9b45-4bc6-acac-ef3452107250)
 
