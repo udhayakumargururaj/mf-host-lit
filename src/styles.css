@@ -1,0 +1,16 @@
+/* styles.css */
+body {
+    display: block;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+h3 {
+  background: #1D24CA;
+  color: white;
+  margin-bottom: 30px;
+  text-align: center;
+  margin-block-start: 0px;
+}
