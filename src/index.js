@@ -1,32 +1,57 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { LitElement, html } from 'lit';
-import './styles.css';
+import { LitElement, html, css } from 'lit';
 
-class LitHost extends LitElement {
+import './rmf.js';
+import './rwc.js';
+
+class TabContainer extends LitElement {
+  static styles = css`
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+    }
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: 1px solid #fff;
+      border-bottom: none;
+      background: #f4f4f4;
+      margin-right: 2px;
+    }
+    .tab[selected] {
+      background: #1D24CA;
+      color: white;
+    }
+    .content {
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+  `;
+
+  static properties = {
+    selectedTab: { type: Number },
+  };
+
   constructor() {
     super();
-    this.data = [
-      { id: 1, name: 'John Doe', email: 'john@example.com' },
-      { id: 2, name: 'Jane Smith', email: 'jane@example.com' },
-      // Add more data as needed
-    ];
+    this.selectedTab = 0;
   }
 
   render() {
     return html`
-      <div id="react-microfrontend"></div>
+      <div class="tabs">
+        <div class="tab" ?selected="${this.selectedTab === 0}" @click="${() => this.selectTab(0)}">MicroFrontend</div>
+        <div class="tab" ?selected="${this.selectedTab === 1}" @click="${() => this.selectTab(1)}">WebComponent</div>
+      </div>
+      <div class="content">
+        ${this.selectedTab === 0 ? html`<rmf-element></rmf-element>` : ''}
+        ${this.selectedTab === 1 ? html`<rwc-element></rwc-element>` : ''}
+      </div>
     `;
   }
 
-  firstUpdated() {
-    // Dynamically load the React microfrontend
-    import('remoteApp/Table').then((module) => {
-      const ReactTable = module.default;
-      const container = this.shadowRoot.getElementById('react-microfrontend');
-      ReactDOM.render(<ReactTable data={this.data}/>, container);
-    });
+  selectTab(index) {
+    this.selectedTab = index;
   }
 }
 
-customElements.define('lit-host', LitHost);
+customElements.define('lit-host', TabContainer);
