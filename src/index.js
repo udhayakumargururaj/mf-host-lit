@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 
 import './rmf.js';
 import './rwc.js';
+import './rwcp.js';
 
 class TabContainer extends LitElement {
   static styles = css`
@@ -39,12 +40,14 @@ class TabContainer extends LitElement {
   render() {
     return html`
       <div class="tabs">
-        <div class="tab" ?selected="${this.selectedTab === 0}" @click="${() => this.selectTab(0)}">MicroFrontend</div>
-        <div class="tab" ?selected="${this.selectedTab === 1}" @click="${() => this.selectTab(1)}">WebComponent</div>
+        <div class="tab" ?selected="${this.selectedTab === 0}" @click="${() => this.selectTab(0)}">React - MF</div>
+        <div class="tab" ?selected="${this.selectedTab === 1}" @click="${() => this.selectTab(1)}">WebComponent - MF </div>
+        <div class="tab" ?selected="${this.selectedTab === 2}" @click="${() => this.selectTab(2)}">WebComponent - Package</div>
       </div>
       <div class="content">
         ${this.selectedTab === 0 ? html`<rmf-element></rmf-element>` : ''}
         ${this.selectedTab === 1 ? html`<rwc-element></rwc-element>` : ''}
+        ${this.selectedTab === 2 ? html`<rwcp-element></rwcp-element>` : ''}
       </div>
     `;
   }
